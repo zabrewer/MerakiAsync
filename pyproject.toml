@@ -1,0 +1,24 @@
+[project]
+name = 'MerakiAsync'
+version = '1.0.0'
+description = 'An async python package for interacting with the Meraki Dashboard API.'
+readme = 'README.md'
+requires-python = '>=3.8'
+authors = [
+    { name = 'Zach Brewer'},
+]
+keywords = [
+    'meraki',
+]
+dependencies = [
+    'meraki>=1.42.0',
+    'tqdm>=4.66.1'
+]
+license = {file = 'LICENSE.md'}
+
+[build-system]
+requires = ['setuptools']
+build-backend = 'setuptools.build_meta'
+
+[tool.setuptools]
+packages = ['merakiasync']
