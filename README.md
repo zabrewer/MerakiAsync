@@ -14,10 +14,21 @@ Performance depends upon many factors (network, the operations being performed, 
 
 Note: I recommend installing MerakiAsync to a Python virtual environment.
 
-Today MerakiAsync can be installed by using a git clone of this repo - future installation methods are in the works.
+1) Create a Python virtual environment (recommended)
+2) In the virtual environment folder:
+``` 
+https://github.com/zabrewer/MerakiAsync.git
+``` 
+3) With the virtual environment activated:
+``` 
+pip install .
+``` 
 
+Alternatively:
+1) Create a Python virtual environment (recommended)
+2) With the virtual environment activated:
 ```
-git clone https://github.com/zabrewer/MerakiAsync.git
+ pip install "git+https://github.com/zabrewer/MerakiAsync"
 ```
 
 An example use case for MerakiAsync.  Like the Meraki Python SDK, when used in Pycharm or VSCode MerakiAsync will show hints (required and optional params) for each class method.
