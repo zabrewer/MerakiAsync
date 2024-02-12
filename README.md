@@ -42,7 +42,7 @@ from pprint import pprint
 
 my_apikey = 'ABC123'
 
-# initiate our class AsyncDashboard from the merakiasync library - this only needs to be done ONCE
+# instantiate our class AsyncDashboard from the merakiasync library - this only needs to be done ONCE
 async_session = merakiasync.AsyncDashboard(apikey=my_apikey)
 
 # instantiate the organizations METHOD from AsyncDashboard class in __init__.py
@@ -147,7 +147,7 @@ from pprint import pprint
 
 my_apikey = 'ABC123'
 
-# initiate our class AsyncDashboard from the merakiasync library - this only needs to be done ONCE
+# instantiate our class AsyncDashboard from the merakiasync library - this only needs to be done ONCE
 async_session = merakiasync.AsyncDashboard(apikey=my_apikey)
 
 # instantiate the organizations METHOD from AsyncDashboard class in __init__.py
