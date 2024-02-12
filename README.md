@@ -12,7 +12,7 @@ Performance depends upon many factors (network, the operations being performed, 
 
 # Installation And Use
 
-Note: I reccomend installing MerakiAsync to a Python virtual environment.
+Note: I recommend installing MerakiAsync to a Python virtual environment.
 
 Today MerakiAsync can be installed by using a git clone of this repo - future installation methods are in the works.
 
@@ -30,8 +30,8 @@ my_apikey = 'ABC123'
 # initiate our class AsyncDashboard from the merakiasync library - this only needs to be done ONCE
 async_session = merakiasync.AsyncDashboard(apikey=my_apikey)
 
-# instatiate the organizations METHOD from AsyncDashboard class in __init__.py
-# this in turn automatically instatiates the Organizations class
+# instantiate the organizations METHOD from AsyncDashboard class in __init__.py
+# this in turn automatically instantiates the Organizations class
 # repeat below for networks, devices, etc. - only one time PER each scope (class)
 organization_session = async_session.organizations()
 
@@ -45,9 +45,9 @@ pprint(all_organizations)
 all_networks = organization_session.AsyncGetOrganizationNetworks(organizations=all_organizations)
 
 '''
-Note that in the above line we DID NOT have to loop through each org and pass them in individually.  All MerakiAsync classes take a list containing one or more dictionaries. Each nested dictionary must include the requred paramaters for the given MerakiAsync Method. In most cases this is done automatically e.g. after calling AsyncGetOrganizations, MerakiAsync added OrganizationId to every nested dictionary before returning the entire list so we don't have to do anything to call AsyncGetOrganizationNetworks.
+Note that in the above line we DID NOT have to loop through each org and pass them in individually.  All MerakiAsync classes take a list containing one or more dictionaries. Each nested dictionary must include the required parameters for the given MerakiAsync Method. In most cases this is done automatically e.g. after calling AsyncGetOrganizations, MerakiAsync added OrganizationId to every nested dictionary before returning the entire list so we don't have to do anything to call AsyncGetOrganizationNetworks.
 
-MerakiAsync also indvidually handles calling the meraki dashboard for each organization using async tasks which speeds up the entire operation.
+MerakiAsync also individually handles calling the meraki dashboard for each organization using async tasks which speeds up the entire operation.
 '''
 pprint(all_networks)
 
@@ -119,11 +119,11 @@ Note that if you pass a debug_dict then the settings in the dict will overwrite 
 
 # Caveats And Differences
 
-The first caveat is that MerakiAsync currently only supports API calls that use the GET http method.  Support for all other methods so that there is 1:1 covererge for all API calls is forthcoming.
+The first caveat is that MerakiAsync currently only supports API calls that use the GET http method.  Support for all other methods so that there is 1:1 coverage for all API calls is forthcoming.
 
 The second thing to call out is that you need to have a session for each top-level class as shown in the first example above (e.g. organizations, networks, appliances, insight, etc).  
 
-After initating once per top-level class you can use any class method (AsyncGetOrganizations, AsyncGetOrganizationNetworks, etc.) that belongs to the respective class (organizations).
+After initiating once per top-level class you can use any class method (AsyncGetOrganizations, AsyncGetOrganizationNetworks, etc.) that belongs to the respective class (organizations).
 
 Here's an example:
 ``` python
@@ -135,39 +135,39 @@ my_apikey = 'ABC123'
 # initiate our class AsyncDashboard from the merakiasync library - this only needs to be done ONCE
 async_session = merakiasync.AsyncDashboard(apikey=my_apikey)
 
-# instatiate the organizations METHOD from AsyncDashboard class in __init__.py
-# this in turn automatically instatiates the Organizations class from 
+# instantiate the organizations METHOD from AsyncDashboard class in __init__.py
+# this in turn automatically instantiates the Organizations class from 
 # repeat below for networks, devices, etc. - only one time PER each scope (class)
 organization_session = async_session.organizations()
-networks_session = async_sessions.networks()
-adminstered_session = async_sessions.administered()
+networks_session = async_session.networks()
+adminstered_session = async_session.administered()
 cellulargateway_session = async_sessions.cellularGateway()
-devices_session = async_sessions.devices()
-insight_session = async_sessionsinsight()
-licensing_session = async_sessions.licensing()
-switch_session = async_sessions.switch()
-wireless_session = async_sessions.wireless()
-appliances_session = async_sessions.appliances()
+devices_session = async_session.devices()
+insight_session = async_session.insight()
+licensing_session = async_session.licensing()
+switch_session = async_session.switch()
+wireless_session = async_session.wireless()
+appliances_session = async_session.appliances()
 ```
 
 ## Differences: Parameters and Data Structures
 
-MerakiAsync works slightly differently than the Python SDK as related to what is passed to MerakiAsync and what is returned.  First, each MerakiAsync class method *alwyas* expects a list containing nested dictionaries.  Each dictionary must include at least the required paramaters for the given class.
+MerakiAsync works slightly differently than the Python SDK as related to what is passed to MerakiAsync and what is returned.  First, each MerakiAsync class method *always* expects a list containing nested dictionaries.  Each dictionary must include at least the required paramaters for the given class.
 
 Additionally, MerakiAsync *always* returns a list containing nested dictionaries. 
 
-Let's take the example of getOrganiztion (returns a single organization).  With MerakiAsync this method is called AsyncGetOrganization and like every other method under the Organizations class (with the exception of AsyncGetOrganizations), it takes **organizationId** as a required paramater.
+Let's take the example of getOrganiztion (returns a single organization).  With MerakiAsync this method is called AsyncGetOrganization and like every other method under the Organizations class (with the exception of AsyncGetOrganizations), it takes **organizationId** as a required parameter.
 
-So we need to pass in at minumum one nested dict called **organizations** that at minumum includes organizationId as a key and a related value.
+So we need to pass in at minimum one nested dict called **organizations** that at minimum includes organizationId as a key and a related value.
 
 This is different from how you would normally call this class in the Python SDK which only requires organizationId passed directly to the class.
 
 Why this difference?  For each dictionary we pass into a MerakiAsync class, we split the calls using async to speed up operations and then return all output.
 
-This is more intune for how we use the Meraki Python SDK at scale.  For example, the following steps are very common starting points in the Meraki API use:
+This is more in-tune for how we use the Meraki Python SDK at scale.  For example, the following steps are very common starting points in the Meraki API use:
 
 1) getOrganizations
-2) do some filter to only return a subset of the organiztions that we want data from
+2) do some filter to only return a subset of the organizations that we want data from
 3) getNetworks (for all of those organizations in step 2)
 4) (optionally) filter the networks
 5) getNetworkDevices, getNetworkSSIDs, or any other operation
@@ -185,8 +185,8 @@ my_apikey = 'ABC123'
 # initiate our class AsyncDashboard from the merakiasync library - this only needs to be done ONCE
 async_session = merakiasync.AsyncDashboard(apikey=my_apikey)
 
-# instatiate the organizations METHOD from AsyncDashboard class in __init__.py
-# this in turn automatically instatiates the Organizations class from 
+# instantiate the organizations METHOD from AsyncDashboard class in __init__.py
+# this in turn automatically instantiates the Organizations class from 
 # repeat below for networks, devices, etc. - only one time PER each scope (class)
 organization_session = async_session.organizations()
 
@@ -225,7 +225,7 @@ AsyncGetOrganizations --> AsyncGetOrganizationNetworks --> AsyncGetNetworkDevice
 
 Other than logic (for loops) where you filter some of the data you don't need to do anything to pass the data to the next class method and get data back as a nested list. 
 
-**MerakiAsync handles spliting up the tasks (each dictionary in the list) for async calls and returing the results.**
+**MerakiAsync handles splitting up the tasks (each dictionary in the list) for async calls and returing the results.**
 
 Another key difference is that MerakiAsync returns a list with multiple dictionaries.  Let's look at an example where we call AsyncGetOrganizationNetworks() for all Organizations that our API key has access to...
 
@@ -235,11 +235,11 @@ Another key difference is that MerakiAsync returns a list with multiple dictiona
 all_organizations = orgnaizationcalls_session.AsyncGetOrganizations()
 ```
 
-This obviously gives us an output of all orgs that our API key has access to as a nested list containing 1 org per dictonary contained in the list.
+This obviously gives us an output of all orgs that our API key has access to as a nested list containing 1 org per dictionary contained in the list.
 
 There is no async benefit to this call because it's a single call and not many calls that are split up per org, however MerakiAsync makes one key difference here vs. the Meraki Python SDK...  **Meraki async ADDS the fields organizationName and organizationId**.  
 
-Now in practice these are exactly the same as name and id which are returned from the API but now instead of passing the paramater 'id' for organzation to any subsequnet org call like *AsyncGetOrganizationNetworks*, organizationId is already there for our future use in other steps.
+Now in practice these are exactly the same as name and id which are returned from the API but now instead of passing the parameter 'id' for organization to any subsequent org call like *AsyncGetOrganizationNetworks*, organizationId is already there for our future use in other steps.
 
 **For each dictionary passed into a MerakiAsync class method, MerakiAsync will always try to add the following fields to each dictionary that is returned:**
 * organizationId
@@ -287,7 +287,7 @@ Note the organizationName filed in the following example output:
   'url': 'https://n51.meraki.com/Meraki-WPNTestin/omitted/manage/usage/list'}]
 ``` 
 
-We have a single list that contains a dictionary for every network contained in any organiztion that was passed to AsyncGetOrganizationNetworks().  But we can now differentiate between those networks by filtering on organizationName or organizationId.
+We have a single list that contains a dictionary for every network contained in any organization that was passed to AsyncGetOrganizationNetworks().  But we can now differentiate between those networks by filtering on organizationName or organizationId.
 
 # More Information
 
