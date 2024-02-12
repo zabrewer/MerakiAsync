@@ -12,6 +12,8 @@ Performance depends upon many factors (network, the operations being performed, 
 
 # Installation And Use
 
+## Installation
+
 Note: I recommend installing MerakiAsync to a Python virtual environment.
 
 1) Create a Python virtual environment (recommended)
@@ -30,6 +32,8 @@ Alternatively:
 ```
  pip install "git+https://github.com/zabrewer/MerakiAsync"
 ```
+
+## Use
 
 An example use case for MerakiAsync.  Like the Meraki Python SDK, when used in Pycharm or VSCode MerakiAsync will show hints (required and optional params) for each class method.
 ``` python
