@@ -9,12 +9,17 @@ authors = [
 ]
 
 keywords = [
-    'meraki',
+    'meraki', 'python', 'automation', 'dashboard-api', 'meraki-api' 
 ]
 
+license = {file = 'LICENSE.md'}
 dependencies = [
     'meraki>=1.42.0',
     'tqdm>=4.66.1'
+]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Programming Language :: Python"
 ]
 
 [project.optional-dependencies]
@@ -23,11 +28,14 @@ dev = [
     'yapf >=0.40.2',
 ]
 
-license = {file = 'LICENSE.md'}
+[project.urls]
+repository = 'https://github.com/zabrewer/MerakiAsync'
+changelog = 'https://github.com/zabrewer/MerakiAsync/blob/main/CHANGELOG.md'
+
 
 [build-system]
 requires = ['setuptools']
 build-backend = 'setuptools.build_meta'
 
 [tool.setuptools]
-packages = ['merakiasync', 'merakiasync.api', 'merakiasync.asynctasks'] 
+packages = ['merakiasync', 'merakiasync.api', 'merakiasync.asynctasks']
