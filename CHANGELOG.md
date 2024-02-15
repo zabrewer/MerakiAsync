@@ -15,8 +15,11 @@ The default can be overridden by passing a different value to the total_pages pa
 
 Docstrings were re-worded to make it more clear that optional parameters are passed directly to the class method as opposed to required parameters that should be keys/values in one or more dictionaries nested in a list.
 
-e.g. AsyncGetOrganizationNetworks(networks=[{organizationId: '1234'}], configTemplateId='X_5678')
- 
+e.g.
+```
+AsyncGetOrganizationNetworks(networks=[{organizationId: '1234'}], configTemplateId='X_5678')
+```
+
 ### Fixed
 
 None
