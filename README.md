@@ -14,7 +14,7 @@ Performance depends upon many factors (network, the operations being performed, 
 
 ## Installation
 
-Note: I recommend installing MerakiAsync to a Python virtual environment.
+Note: Installing MerakiAsync to a Python virtual environment is recommended
 
 1) Create a Python virtual environment (recommended)
 2) In the virtual environment folder:
