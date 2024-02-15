@@ -484,6 +484,7 @@ async def _call_getnetworkapplianceclientsecurityevents(aiomeraki, appliance, **
         returned_json = await aiomeraki.appliance.getNetworkApplianceClientSecurityEvents(
             networkId=appliance['networkId'],
             clientId=appliance['clientId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2116,6 +2117,7 @@ async def _call_getnetworkappliancesecurityevents(aiomeraki, appliance, **kwargs
     try:
         returned_json = await aiomeraki.appliance.getNetworkApplianceSecurityEvents(
             networkId=appliance['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3748,6 +3750,7 @@ async def _call_getorganizationappliancesecurityevents(aiomeraki, appliance, **k
     try:
         returned_json = await aiomeraki.appliance.getOrganizationApplianceSecurityEvents(
             organizationId=appliance['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3896,6 +3899,7 @@ async def _call_getorganizationappliancetrafficshapingvpnexclusionsbynetwork(aio
     try:
         returned_json = await aiomeraki.appliance.getOrganizationApplianceTrafficShapingVpnExclusionsByNetwork(
             organizationId=appliance['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3970,6 +3974,7 @@ async def _call_getorganizationapplianceuplinkstatuses(aiomeraki, appliance, **k
     try:
         returned_json = await aiomeraki.appliance.getOrganizationApplianceUplinkStatuses(
             organizationId=appliance['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -4118,6 +4123,7 @@ async def _call_getorganizationappliancevpnstats(aiomeraki, appliance, **kwargs)
     try:
         returned_json = await aiomeraki.appliance.getOrganizationApplianceVpnStats(
             organizationId=appliance['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -4192,6 +4198,7 @@ async def _call_getorganizationappliancevpnstatuses(aiomeraki, appliance, **kwar
     try:
         returned_json = await aiomeraki.appliance.getOrganizationApplianceVpnStatuses(
             organizationId=appliance['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:

@@ -13,9 +13,8 @@ class Switch:
         **List the switch ports for a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-ports
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchports(
@@ -30,13 +29,12 @@ class Switch:
         **Return the status for all the ports of a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-ports-statuses
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchportsstatuses(
@@ -51,13 +49,12 @@ class Switch:
         **Return the packet counters for all the ports of a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-ports-statuses-packets
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 1 day from today. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 1 day. The default is 1 day. (optional)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchportsstatusespackets(
@@ -72,10 +69,9 @@ class Switch:
         **Return a switch port**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-port
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
             - portId (string): Port ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchport(
@@ -90,9 +86,8 @@ class Switch:
         **List layer 3 interfaces for a switch. Those for a stack may be found under switch stack routing.**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-routing-interfaces
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchroutinginterfaces(
@@ -107,10 +102,9 @@ class Switch:
         **Return a layer 3 interface for a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-routing-interface
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
             - interfaceId (string): Interface ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchroutinginterface(
@@ -125,10 +119,9 @@ class Switch:
         **Return a layer 3 interface DHCP configuration for a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-routing-interface-dhcp
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
             - interfaceId (string): Interface ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchroutinginterfacedhcp(
@@ -143,9 +136,8 @@ class Switch:
         **List layer 3 static routes for a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-routing-static-routes
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchroutingstaticroutes(
@@ -160,10 +152,9 @@ class Switch:
         **Return a layer 3 static route for a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-routing-static-route
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
             - staticRouteId (string): Static route ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchroutingstaticroute(
@@ -178,9 +169,8 @@ class Switch:
         **Return warm spare configuration for a switch**
         https://developer.cisco.com/meraki/api-v1/#!get-device-switch-warm-spare
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceswitchwarmspare(
@@ -195,9 +185,8 @@ class Switch:
         **Return the access control lists for a MS network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-access-control-lists
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchaccesscontrollists(
@@ -212,9 +201,8 @@ class Switch:
         **List the access policies for a switch network. Only returns access policies with 'my RADIUS server' as authentication method**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-access-policies
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchaccesspolicies(
@@ -229,10 +217,9 @@ class Switch:
         **Return a specific access policy for a switch network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-access-policy
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - accessPolicyNumber (string): Access policy number (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchaccesspolicy(
@@ -247,9 +234,8 @@ class Switch:
         **Return the switch alternate management interface for the network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-alternate-management-interface
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchalternatemanagementinterface(
@@ -264,16 +250,17 @@ class Switch:
         **Return the network's DHCPv4 servers seen within the selected timeframe (default 1 day)**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-dhcp-v-4-servers-seen
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameter t0. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchdhcpv4serversseen(
@@ -288,9 +275,8 @@ class Switch:
         **Return the DHCP server settings. Blocked/allowed servers are only applied when default policy is allow/block, respectively**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-dhcp-server-policy
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchdhcpserverpolicy(
@@ -305,14 +291,15 @@ class Switch:
         **Return the list of servers trusted by Dynamic ARP Inspection on this network. These are also known as allow listed snoop entries**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-dhcp-server-policy-arp-inspection-trusted-servers
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchdhcpserverpolicyarpinspectiontrustedservers(
@@ -327,14 +314,15 @@ class Switch:
         **Return the devices that have a Dynamic ARP Inspection warning and their warnings**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-dhcp-server-policy-arp-inspection-warnings-by-device
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchdhcpserverpolicyarpinspectionwarningsbydevice(
@@ -349,9 +337,8 @@ class Switch:
         **Return the DSCP to CoS mappings**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-dscp-to-cos-mappings
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchdscptocosmappings(
@@ -366,9 +353,8 @@ class Switch:
         **List link aggregation groups**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-link-aggregations
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchlinkaggregations(
@@ -383,9 +369,8 @@ class Switch:
         **Return the MTU configuration**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-mtu
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchmtu(
@@ -400,9 +385,8 @@ class Switch:
         **List switch port schedules**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-port-schedules
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchportschedules(
@@ -417,9 +401,8 @@ class Switch:
         **List quality of service rules**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-qos-rules
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchqosrules(
@@ -434,9 +417,8 @@ class Switch:
         **Return the quality of service rule IDs by order in which they will be processed by the switch**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-qos-rules-order
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchqosrulesorder(
@@ -451,10 +433,9 @@ class Switch:
         **Return a quality of service rule**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-qos-rule
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - qosRuleId (string): Qos rule ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchqosrule(
@@ -469,9 +450,8 @@ class Switch:
         **Return multicast settings for a network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-routing-multicast
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchroutingmulticast(
@@ -486,9 +466,8 @@ class Switch:
         **List multicast rendezvous points**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-routing-multicast-rendezvous-points
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchroutingmulticastrendezvouspoints(
@@ -503,10 +482,9 @@ class Switch:
         **Return a multicast rendezvous point**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-routing-multicast-rendezvous-point
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - rendezvousPointId (string): Rendezvous point ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchroutingmulticastrendezvouspoint(
@@ -521,9 +499,8 @@ class Switch:
         **Return layer 3 OSPF routing configuration**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-routing-ospf
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchroutingospf(
@@ -538,9 +515,8 @@ class Switch:
         **Returns the switch network settings**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-settings
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchsettings(
@@ -555,9 +531,8 @@ class Switch:
         **List the switch stacks in a network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stacks
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstacks(
@@ -572,10 +547,9 @@ class Switch:
         **Show a switch stack**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stack
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - switchStackId (string): Switch stack ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstack(
@@ -590,10 +564,9 @@ class Switch:
         **List layer 3 interfaces for a switch stack**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stack-routing-interfaces
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - switchStackId (string): Switch stack ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstackroutinginterfaces(
@@ -608,11 +581,10 @@ class Switch:
         **Return a layer 3 interface from a switch stack**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stack-routing-interface
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - switchStackId (string): Switch stack ID (required)
             - interfaceId (string): Interface ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstackroutinginterface(
@@ -627,11 +599,10 @@ class Switch:
         **Return a layer 3 interface DHCP configuration for a switch stack**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stack-routing-interface-dhcp
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - switchStackId (string): Switch stack ID (required)
             - interfaceId (string): Interface ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstackroutinginterfacedhcp(
@@ -646,10 +617,9 @@ class Switch:
         **List layer 3 static routes for a switch stack**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stack-routing-static-routes
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - switchStackId (string): Switch stack ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstackroutingstaticroutes(
@@ -664,11 +634,10 @@ class Switch:
         **Return a layer 3 static route for a switch stack**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stack-routing-static-route
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - switchStackId (string): Switch stack ID (required)
             - staticRouteId (string): Static route ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstackroutingstaticroute(
@@ -683,9 +652,8 @@ class Switch:
         **Return the storm control configuration for a switch network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-storm-control
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstormcontrol(
@@ -700,9 +668,8 @@ class Switch:
         **Returns STP settings**
         https://developer.cisco.com/meraki/api-v1/#!get-network-switch-stp
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkswitchstp(
@@ -717,10 +684,9 @@ class Switch:
         **List the switch templates for your switch template configuration**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-config-template-switch-profiles
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
             - configTemplateId (string): Config template ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationconfigtemplateswitchprofiles(
@@ -735,11 +701,10 @@ class Switch:
         **Return all the ports of a switch template**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-config-template-switch-profile-ports
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
             - configTemplateId (string): Config template ID (required)
             - profileId (string): Profile ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationconfigtemplateswitchprofileports(
@@ -754,12 +719,11 @@ class Switch:
         **Return a switch template port**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-config-template-switch-profile-port
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
             - configTemplateId (string): Config template ID (required)
             - profileId (string): Profile ID (required)
             - portId (string): Port ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationconfigtemplateswitchprofileport(
@@ -774,8 +738,13 @@ class Switch:
         **List the switchports in an organization by switch**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-switch-ports-by-switch
 
-        switch: (list) List containing one or more switch (dict).  Each nested dict can include the following required and/or optional keys/values:
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
+        
+        The following optional paramaters can be passed directly to the class as arguments:
+            - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 50. Default is 50. (optional)
+            - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
+            - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - networkIds (array): Optional parameter to filter switchports by network. (optional)
             - portProfileIds (array): Optional parameter to filter switchports belonging to the specified port profiles. (optional)
             - name (string): Optional parameter to filter switchports belonging to switches by name. All returned switches will have a name that contains the search term or is an exact match. (optional)
@@ -784,12 +753,8 @@ class Switch:
             - serial (string): Optional parameter to filter switchports belonging to switches by serial number. All returned switches will have a serial number that contains the search term or is an exact match. (optional)
             - serials (array): Optional parameter to filter switchports belonging to switches with one or more serial numbers. All switchports returned belong to serial numbers of switches that are an exact match. (optional)
             - configurationUpdatedAfter (string): Optional parameter to filter results by switches where the configuration has been updated after the given timestamp. (optional)
-
-        These additional time based paramaters can be passed in directly to the class:
-            - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 50. Default is 50. (optional)
-            - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-            - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationswitchportsbyswitch(

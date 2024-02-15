@@ -13,7 +13,6 @@ class Administered:
         **Returns the identity of the current user.**
         https://developer.cisco.com/meraki/api-v1/#!get-administered-identities-me
 
-
         """
 
         return self._loop.run_until_complete(

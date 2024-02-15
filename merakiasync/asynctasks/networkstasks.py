@@ -113,6 +113,7 @@ async def _call_getnetworkalertshistory(aiomeraki, network, **kwargs):
     try:
         returned_json = await aiomeraki.networks.getNetworkAlertsHistory(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -261,6 +262,7 @@ async def _call_getnetworkbluetoothclients(aiomeraki, network, **kwargs):
     try:
         returned_json = await aiomeraki.networks.getNetworkBluetoothClients(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -410,6 +412,7 @@ async def _call_getnetworkclients(aiomeraki, network, **kwargs):
     try:
         returned_json = await aiomeraki.networks.getNetworkClients(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -485,6 +488,7 @@ async def _call_getnetworkclientsapplicationusage(aiomeraki, network, **kwargs):
         returned_json = await aiomeraki.networks.getNetworkClientsApplicationUsage(
             networkId=network['networkId'],
             clients=network['clients'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -559,6 +563,7 @@ async def _call_getnetworkclientsbandwidthusagehistory(aiomeraki, network, **kwa
     try:
         returned_json = await aiomeraki.networks.getNetworkClientsBandwidthUsageHistory(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -708,6 +713,7 @@ async def _call_getnetworkclientsusagehistories(aiomeraki, network, **kwargs):
         returned_json = await aiomeraki.networks.getNetworkClientsUsageHistories(
             networkId=network['networkId'],
             clients=network['clients'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1008,6 +1014,7 @@ async def _call_getnetworkclienttraffichistory(aiomeraki, network, **kwargs):
         returned_json = await aiomeraki.networks.getNetworkClientTrafficHistory(
             networkId=network['networkId'],
             clientId=network['clientId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1231,6 +1238,7 @@ async def _call_getnetworkevents(aiomeraki, network, **kwargs):
     try:
         returned_json = await aiomeraki.networks.getNetworkEvents(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2494,6 +2502,7 @@ async def _call_getnetworknetworkhealthchannelutilization(aiomeraki, network, **
     try:
         returned_json = await aiomeraki.networks.getNetworkNetworkHealthChannelUtilization(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2939,6 +2948,7 @@ async def _call_getnetworkpoliciesbyclient(aiomeraki, network, **kwargs):
     try:
         returned_json = await aiomeraki.networks.getNetworkPoliciesByClient(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3753,6 +3763,7 @@ async def _call_getnetworkvlanprofilesassignmentsbydevice(aiomeraki, network, **
     try:
         returned_json = await aiomeraki.networks.getNetworkVlanProfilesAssignmentsByDevice(
             networkId=network['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:

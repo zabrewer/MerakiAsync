@@ -1077,6 +1077,7 @@ async def _call_getnetworkwirelessclientconnectivityevents(aiomeraki, wireless, 
         returned_json = await aiomeraki.wireless.getNetworkWirelessClientConnectivityEvents(
             networkId=wireless['networkId'],
             clientId=wireless['clientId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1968,6 +1969,7 @@ async def _call_getnetworkwirelessmeshstatuses(aiomeraki, wireless, **kwargs):
     try:
         returned_json = await aiomeraki.wireless.getNetworkWirelessMeshStatuses(
             networkId=wireless['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3463,6 +3465,7 @@ async def _call_getorganizationwirelessdeviceschannelutilizationbydevice(aiomera
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesChannelUtilizationByDevice(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3537,6 +3540,7 @@ async def _call_getorganizationwirelessdeviceschannelutilizationbynetwork(aiomer
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesChannelUtilizationByNetwork(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3611,6 +3615,7 @@ async def _call_getorganizationwirelessdeviceschannelutilizationhistorybydeviceb
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesChannelUtilizationHistoryByDeviceByInterval(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3685,6 +3690,7 @@ async def _call_getorganizationwirelessdeviceschannelutilizationhistorybynetwork
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesChannelUtilizationHistoryByNetworkByInterval(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3759,6 +3765,7 @@ async def _call_getorganizationwirelessdevicesethernetstatuses(aiomeraki, wirele
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesEthernetStatuses(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3833,6 +3840,7 @@ async def _call_getorganizationwirelessdevicespacketlossbyclient(aiomeraki, wire
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesPacketLossByClient(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3907,6 +3915,7 @@ async def _call_getorganizationwirelessdevicespacketlossbydevice(aiomeraki, wire
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesPacketLossByDevice(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3981,6 +3990,7 @@ async def _call_getorganizationwirelessdevicespacketlossbynetwork(aiomeraki, wir
     try:
         returned_json = await aiomeraki.wireless.getOrganizationWirelessDevicesPacketLossByNetwork(
             organizationId=wireless['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:

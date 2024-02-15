@@ -1080,6 +1080,7 @@ async def _call_getnetworkswitchdhcpv4serversseen(aiomeraki, switch, **kwargs):
     try:
         returned_json = await aiomeraki.switch.getNetworkSwitchDhcpV4ServersSeen(
             networkId=switch['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1228,6 +1229,7 @@ async def _call_getnetworkswitchdhcpserverpolicyarpinspectiontrustedservers(aiom
     try:
         returned_json = await aiomeraki.switch.getNetworkSwitchDhcpServerPolicyArpInspectionTrustedServers(
             networkId=switch['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1302,6 +1304,7 @@ async def _call_getnetworkswitchdhcpserverpolicyarpinspectionwarningsbydevice(ai
     try:
         returned_json = await aiomeraki.switch.getNetworkSwitchDhcpServerPolicyArpInspectionWarningsByDevice(
             networkId=switch['networkId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3169,6 +3172,7 @@ async def _call_getorganizationswitchportsbyswitch(aiomeraki, switch, **kwargs):
     try:
         returned_json = await aiomeraki.switch.getOrganizationSwitchPortsBySwitch(
             organizationId=switch['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:

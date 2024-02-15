@@ -11,7 +11,7 @@ import merakiasync.api.licensingcalls as licensingcalls
 
 __author__ = 'Zach Brewer'
 __email__ = 'zbrewer@cisco.com'
-__version__ = '1.0.0'
+__version__ = '1.0.01'
 __license__ = 'MIT'
 
 class AsyncDashboard(object):

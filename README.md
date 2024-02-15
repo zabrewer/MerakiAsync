@@ -134,7 +134,10 @@ Note that if you pass a debug_dict then the settings in the dict will overwrite 
 
 # Caveats And Differences
 
+## Differences: HTTP Methods Supported
 The first caveat is that MerakiAsync currently only supports API calls that use the GET http method.  Support for all other methods so that there is 1:1 coverage for all API calls is forthcoming.
+
+## Differences: MerakiAsync Session Initiation
 
 The second thing to call out is that you need to have a session for each top-level class as shown in the first example above (e.g. organizations, networks, appliances, insight, etc).  
 
@@ -164,6 +167,23 @@ switch_session = async_session.switch()
 wireless_session = async_session.wireless()
 appliances_session = async_session.appliances()
 ```
+
+## Differences: Handling Optional Parameters
+
+While **required paramaters** must be keys/values within one or more dictionaries nested in a single list, **optional parameters** are passed directly to the class method as opposed to required parameters that should be keys/values in one or more dictionaries nested in a list.
+
+Example:
+``` python
+AsyncGetOrganizationNetworks(networks=[{organizationId: '1234'}], configTemplateId='X_5678')
+```
+
+## Differences: Default Argument for PerPage Parameter
+
+For any class that accepts perPage and total_pages (for Meraki API endpoints that support pagination), total_pages now defaults to 'all' so that all pages are always returned.  
+    
+Note: The default can be overridden by passing a different value to the total_pages parameter when calling a specific class method (e.g. AsyncGetOrganizationNetworks).
+
+In most cases when using a MerakiAsync you want all pages returned so there is no need to pass total_pages='all' to the class method that supports it like is necessary with the Python Meraki SDK.
 
 ## Differences: Parameters and Data Structures
 

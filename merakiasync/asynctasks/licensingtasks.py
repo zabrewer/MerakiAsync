@@ -39,6 +39,7 @@ async def _call_getorganizationlicensingcotermlicenses(aiomeraki, licensing, **k
     try:
         returned_json = await aiomeraki.licensing.getOrganizationLicensingCotermLicenses(
             organizationId=licensing['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:

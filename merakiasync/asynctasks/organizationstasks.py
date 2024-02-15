@@ -1062,6 +1062,7 @@ async def _call_getorganizationapirequests(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationApiRequests(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1656,6 +1657,7 @@ async def _call_getorganizationclientssearch(aiomeraki, organization, **kwargs):
         returned_json = await aiomeraki.organizations.getOrganizationClientsSearch(
             organizationId=organization['organizationId'],
             mac=organization['mac'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1879,6 +1881,7 @@ async def _call_getorganizationconfigurationchanges(aiomeraki, organization, **k
     try:
         returned_json = await aiomeraki.organizations.getOrganizationConfigurationChanges(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -1953,6 +1956,7 @@ async def _call_getorganizationdevices(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevices(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2027,6 +2031,7 @@ async def _call_getorganizationdevicesavailabilities(aiomeraki, organization, **
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesAvailabilities(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2101,6 +2106,7 @@ async def _call_getorganizationdevicesavailabilitieschangehistory(aiomeraki, org
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesAvailabilitiesChangeHistory(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2175,6 +2181,7 @@ async def _call_getorganizationdevicespowermodulesstatusesbydevice(aiomeraki, or
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesPowerModulesStatusesByDevice(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2249,6 +2256,7 @@ async def _call_getorganizationdevicesprovisioningstatuses(aiomeraki, organizati
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesProvisioningStatuses(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2323,6 +2331,7 @@ async def _call_getorganizationdevicesstatuses(aiomeraki, organization, **kwargs
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesStatuses(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2471,6 +2480,7 @@ async def _call_getorganizationdevicesuplinksaddressesbydevice(aiomeraki, organi
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesUplinksAddressesByDevice(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2842,6 +2852,7 @@ async def _call_getorganizationfirmwareupgrades(aiomeraki, organization, **kwarg
     try:
         returned_json = await aiomeraki.organizations.getOrganizationFirmwareUpgrades(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2916,6 +2927,7 @@ async def _call_getorganizationfirmwareupgradesbydevice(aiomeraki, organization,
     try:
         returned_json = await aiomeraki.organizations.getOrganizationFirmwareUpgradesByDevice(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -2990,6 +3002,7 @@ async def _call_getorganizationinventorydevices(aiomeraki, organization, **kwarg
     try:
         returned_json = await aiomeraki.organizations.getOrganizationInventoryDevices(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3215,6 +3228,7 @@ async def _call_getorganizationinventoryonboardingcloudmonitoringnetworks(aiomer
         returned_json = await aiomeraki.organizations.getOrganizationInventoryOnboardingCloudMonitoringNetworks(
             organizationId=organization['organizationId'],
             deviceType=organization['deviceType'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3289,6 +3303,7 @@ async def _call_getorganizationlicenses(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationLicenses(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3586,6 +3601,7 @@ async def _call_getorganizationnetworks(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationNetworks(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3732,6 +3748,7 @@ async def _call_getorganizationpolicyobjects(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationPolicyObjects(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -3806,6 +3823,7 @@ async def _call_getorganizationpolicyobjectsgroups(aiomeraki, organization, **kw
     try:
         returned_json = await aiomeraki.organizations.getOrganizationPolicyObjectsGroups(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -4994,6 +5012,7 @@ async def _call_getorganizationuplinksstatuses(aiomeraki, organization, **kwargs
     try:
         returned_json = await aiomeraki.organizations.getOrganizationUplinksStatuses(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -5142,6 +5161,7 @@ async def _call_getorganizationwebhookslogs(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationWebhooksLogs(
             organizationId=organization['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:

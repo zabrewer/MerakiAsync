@@ -13,9 +13,8 @@ class Appliance:
         **Return the DHCP subnet information for an appliance**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-dhcp-subnets
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceappliancedhcpsubnets(
@@ -30,9 +29,8 @@ class Appliance:
         **Return the performance score for a single MX. Only primary MX devices supported. If no data is available, a 204 error code is returned.**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-performance
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceapplianceperformance(
@@ -47,9 +45,8 @@ class Appliance:
         **Return current delegated IPv6 prefixes on an appliance.**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-prefixes-delegated
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceapplianceprefixesdelegated(
@@ -64,9 +61,8 @@ class Appliance:
         **Return prefixes assigned to all IPv6 enabled VLANs on an appliance.**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-prefixes-delegated-vlan-assignments
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceapplianceprefixesdelegatedvlanassignments(
@@ -81,9 +77,8 @@ class Appliance:
         **Return the radio settings of an appliance**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-radio-settings
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceapplianceradiosettings(
@@ -98,9 +93,8 @@ class Appliance:
         **Return the uplink settings for an MX appliance**
         https://developer.cisco.com/meraki/api-v1/#!get-device-appliance-uplinks-settings
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - serial (string): Serial (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdeviceapplianceuplinkssettings(
@@ -115,11 +109,11 @@ class Appliance:
         **List the security events for a client. Clients can be identified by a client key or either the MAC or IP depending on whether the network uses Track-by-IP.**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-client-security-events
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - clientId (string): Client ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. Data is gathered after the specified t0 value. The maximum lookback period is 791 days from today. (optional)
             - t1 (string): The end of the timespan for the data. t1 can be a maximum of 791 days after t0. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 791 days. The default is 31 days. (optional)
@@ -127,7 +121,8 @@ class Appliance:
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - sortOrder (string): Sorted order of security events based on event detection time. Order options are 'ascending' or 'descending'. Default is ascending order. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkapplianceclientsecurityevents(
@@ -142,9 +137,8 @@ class Appliance:
         **Return the connectivity testing destinations for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-connectivity-monitoring-destinations
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkapplianceconnectivitymonitoringdestinations(
@@ -159,9 +153,8 @@ class Appliance:
         **Return the content filtering settings for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-content-filtering
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancecontentfiltering(
@@ -176,9 +169,8 @@ class Appliance:
         **List all available content filtering categories for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-content-filtering-categories
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancecontentfilteringcategories(
@@ -193,9 +185,8 @@ class Appliance:
         **Return the cellular firewall rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-cellular-firewall-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallcellularfirewallrules(
@@ -210,9 +201,8 @@ class Appliance:
         **List the appliance services and their accessibility rules**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-firewalled-services
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallfirewalledservices(
@@ -227,10 +217,9 @@ class Appliance:
         **Return the accessibility settings of the given service ('ICMP', 'web', or 'SNMP')**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-firewalled-service
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - service (string): Service (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallfirewalledservice(
@@ -245,9 +234,8 @@ class Appliance:
         **Return the inbound cellular firewall rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-inbound-cellular-firewall-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallinboundcellularfirewallrules(
@@ -262,9 +250,8 @@ class Appliance:
         **Return the inbound firewall rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-inbound-firewall-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallinboundfirewallrules(
@@ -279,9 +266,8 @@ class Appliance:
         **Return the L3 firewall rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-l-3-firewall-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewalll3firewallrules(
@@ -296,9 +282,8 @@ class Appliance:
         **List the MX L7 firewall rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-l-7-firewall-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewalll7firewallrules(
@@ -313,9 +298,8 @@ class Appliance:
         **Return the L7 firewall application categories and their associated applications for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-l-7-firewall-rules-application-categories
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewalll7firewallrulesapplicationcategories(
@@ -330,9 +314,8 @@ class Appliance:
         **Return the 1:Many NAT mapping rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-one-to-many-nat-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallonetomanynatrules(
@@ -347,9 +330,8 @@ class Appliance:
         **Return the 1:1 NAT mapping rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-one-to-one-nat-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallonetoonenatrules(
@@ -364,9 +346,8 @@ class Appliance:
         **Return the port forwarding rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-port-forwarding-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallportforwardingrules(
@@ -381,9 +362,8 @@ class Appliance:
         **Return the firewall settings for this network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-firewall-settings
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancefirewallsettings(
@@ -398,9 +378,8 @@ class Appliance:
         **List per-port VLAN settings for all ports of a MX.**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ports
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkapplianceports(
@@ -415,10 +394,9 @@ class Appliance:
         **Return per-port VLAN settings for a single MX port.**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-port
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - portId (string): Port ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkapplianceport(
@@ -433,9 +411,8 @@ class Appliance:
         **List static delegated prefixes for a network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-prefixes-delegated-statics
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkapplianceprefixesdelegatedstatics(
@@ -450,10 +427,9 @@ class Appliance:
         **Return a static delegated prefix from a network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-prefixes-delegated-static
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - staticDelegatedPrefixId (string): Static delegated prefix ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkapplianceprefixesdelegatedstatic(
@@ -468,9 +444,8 @@ class Appliance:
         **List the RF profiles for this network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-rf-profiles
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancerfprofiles(
@@ -485,10 +460,9 @@ class Appliance:
         **Return a RF profile**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-rf-profile
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - rfProfileId (string): Rf profile ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancerfprofile(
@@ -503,10 +477,10 @@ class Appliance:
         **List the security events for a network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-security-events
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. Data is gathered after the specified t0 value. The maximum lookback period is 365 days from today. (optional)
             - t1 (string): The end of the timespan for the data. t1 can be a maximum of 365 days after t0. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 365 days. The default is 31 days. (optional)
@@ -514,7 +488,8 @@ class Appliance:
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - sortOrder (string): Sorted order of security events based on event detection time. Order options are 'ascending' or 'descending'. Default is ascending order. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancesecurityevents(
@@ -529,9 +504,8 @@ class Appliance:
         **Returns all supported intrusion settings for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-security-intrusion
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancesecurityintrusion(
@@ -546,9 +520,8 @@ class Appliance:
         **Returns all supported malware settings for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-security-malware
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancesecuritymalware(
@@ -563,9 +536,8 @@ class Appliance:
         **Return the appliance settings for a network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-settings
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancesettings(
@@ -580,9 +552,8 @@ class Appliance:
         **Return single LAN configuration**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-single-lan
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancesinglelan(
@@ -597,9 +568,8 @@ class Appliance:
         **List the MX SSIDs in a network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ssids
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancessids(
@@ -614,10 +584,9 @@ class Appliance:
         **Return a single MX SSID**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-ssid
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - number (string): Number (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancessid(
@@ -632,9 +601,8 @@ class Appliance:
         **List the static routes for an MX or teleworker network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-static-routes
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancestaticroutes(
@@ -649,10 +617,9 @@ class Appliance:
         **Return a static route for an MX or teleworker network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-static-route
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - staticRouteId (string): Static route ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancestaticroute(
@@ -667,9 +634,8 @@ class Appliance:
         **Display the traffic shaping settings for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-traffic-shaping
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancetrafficshaping(
@@ -684,9 +650,8 @@ class Appliance:
         **List all custom performance classes for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-traffic-shaping-custom-performance-classes
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancetrafficshapingcustomperformanceclasses(
@@ -701,10 +666,9 @@ class Appliance:
         **Return a custom performance class for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-traffic-shaping-custom-performance-class
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - customPerformanceClassId (string): Custom performance class ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancetrafficshapingcustomperformanceclass(
@@ -719,9 +683,8 @@ class Appliance:
         **Display the traffic shaping settings rules for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-traffic-shaping-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancetrafficshapingrules(
@@ -736,9 +699,8 @@ class Appliance:
         **Returns the uplink bandwidth limits for your MX network. This may not reflect the affected device's hardware capabilities.  For more information on your device's hardware capabilities, please consult our MX Family Datasheet - [https://meraki.cisco.com/product-collateral/mx-family-datasheet/?file]**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-traffic-shaping-uplink-bandwidth
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancetrafficshapinguplinkbandwidth(
@@ -753,9 +715,8 @@ class Appliance:
         **Show uplink selection settings for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-traffic-shaping-uplink-selection
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancetrafficshapinguplinkselection(
@@ -770,15 +731,14 @@ class Appliance:
         **Get the sent and received bytes for each uplink of a network.**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-uplinks-usage-history
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)
             - t1 (string): The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 10 minutes. (optional)
             - resolution (integer): The time resolution in seconds for returned data. The valid resolutions are: 60, 300, 600, 1800, 3600, 86400. The default is 60. (optional)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkapplianceuplinksusagehistory(
@@ -793,9 +753,8 @@ class Appliance:
         **List the VLANs for an MX network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-vlans
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancevlans(
@@ -810,9 +769,8 @@ class Appliance:
         **Returns the enabled status of VLANs for the network**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-vlans-settings
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancevlanssettings(
@@ -827,10 +785,9 @@ class Appliance:
         **Return a VLAN**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-vlan
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
             - vlanId (string): Vlan ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancevlan(
@@ -845,9 +802,8 @@ class Appliance:
         **Return a Hub BGP Configuration**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-vpn-bgp
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancevpnbgp(
@@ -862,9 +818,8 @@ class Appliance:
         **Return the site-to-site VPN settings of a network. Only valid for MX networks.**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-vpn-site-to-site-vpn
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancevpnsitetositevpn(
@@ -879,9 +834,8 @@ class Appliance:
         **Return MX warm spare settings**
         https://developer.cisco.com/meraki/api-v1/#!get-network-appliance-warm-spare
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - networkId (string): Network ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getnetworkappliancewarmspare(
@@ -896,10 +850,10 @@ class Appliance:
         **List the security events for an organization**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-security-events
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. Data is gathered after the specified t0 value. The maximum lookback period is 365 days from today. (optional)
             - t1 (string): The end of the timespan for the data. t1 can be a maximum of 365 days after t0. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 365 days. The default is 31 days. (optional)
@@ -907,7 +861,8 @@ class Appliance:
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - sortOrder (string): Sorted order of security events based on event detection time. Order options are 'ascending' or 'descending'. Default is ascending order. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationappliancesecurityevents(
@@ -922,9 +877,8 @@ class Appliance:
         **Returns all supported intrusion settings for an organization**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-security-intrusion
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationappliancesecurityintrusion(
@@ -939,15 +893,16 @@ class Appliance:
         **Display VPN exclusion rules for MX networks.**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-traffic-shaping-vpn-exclusions-by-network
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-            - networkIds (array): Optional parameter to filter the results by network IDs (optional)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 1000. Default is 50. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-
+            - networkIds (array): Optional parameter to filter the results by network IDs (optional)
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationappliancetrafficshapingvpnexclusionsbynetwork(
@@ -962,17 +917,18 @@ class Appliance:
         **List the uplink status of every Meraki MX and Z series appliances in the organization**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-uplink-statuses
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-            - networkIds (array): A list of network IDs. The returned devices will be filtered to only include these networks. (optional)
-            - serials (array): A list of serial numbers. The returned devices will be filtered to only include these serials. (optional)
-            - iccids (array): A list of ICCIDs. The returned devices will be filtered to only include these ICCIDs. (optional)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-
+            - networkIds (array): A list of network IDs. The returned devices will be filtered to only include these networks. (optional)
+            - serials (array): A list of serial numbers. The returned devices will be filtered to only include these serials. (optional)
+            - iccids (array): A list of ICCIDs. The returned devices will be filtered to only include these ICCIDs. (optional)
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationapplianceuplinkstatuses(
@@ -987,14 +943,13 @@ class Appliance:
         **Get the sent and received bytes for each uplink of all MX and Z networks within an organization. If more than one device was active during the specified timespan, then the sent and received bytes will be aggregated by interface.**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-uplinks-usage-by-network
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 365 days from today. (optional)
             - t1 (string): The end of the timespan for the data. t1 can be a maximum of 14 days after t0. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 days. The default is 1 day. (optional)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationapplianceuplinksusagebynetwork(
@@ -1009,18 +964,19 @@ class Appliance:
         **Show VPN history stat for networks in an organization**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-vpn-stats
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-            - networkIds (array): A list of Meraki network IDs to filter results to contain only specified networks. E.g.: networkIds[]=N_12345678&networkIds[]=L_3456 (optional)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 300. Default is 300. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
+            - networkIds (array): A list of Meraki network IDs to filter results to contain only specified networks. E.g.: networkIds[]=N_12345678&networkIds[]=L_3456 (optional)
             - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)
             - t1 (string): The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)
             - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)
-
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationappliancevpnstats(
@@ -1035,15 +991,16 @@ class Appliance:
         **Show VPN status for networks in an organization**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-vpn-statuses
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-            - networkIds (array): A list of Meraki network IDs to filter results to contain only specified networks. E.g.: networkIds[]=N_12345678&networkIds[]=L_3456 (optional)
-
-        These additional time based paramaters can be passed in directly to the class:
+        
+        The following optional paramaters can be passed directly to the class as arguments:
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 300. Default is 300. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-
+            - networkIds (array): A list of Meraki network IDs to filter results to contain only specified networks. E.g.: networkIds[]=N_12345678&networkIds[]=L_3456 (optional)
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationappliancevpnstatuses(
@@ -1058,9 +1015,8 @@ class Appliance:
         **Return the third party VPN peers for an organization**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-vpn-third-party-v-p-n-peers
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationappliancevpnthirdpartyvpnpeers(
@@ -1075,9 +1031,8 @@ class Appliance:
         **Return the firewall rules for an organization's site-to-site VPN**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-vpn-vpn-firewall-rules
 
-        appliance: (list) List containing one or more appliance (dict).  Each nested dict can include the following required and/or optional keys/values:
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
             - organizationId (string): Organization ID (required)
-
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationappliancevpnvpnfirewallrules(

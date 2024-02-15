@@ -1,6 +1,6 @@
 [project]
 name = 'MerakiAsync'
-version = '1.0.0'
+version = '1.0.01'
 description = 'An async python package for interacting with the Meraki Dashboard API.'
 readme = 'README.md'
 requires-python = '>=3.8'

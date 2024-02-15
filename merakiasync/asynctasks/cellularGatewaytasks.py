@@ -483,6 +483,7 @@ async def _call_getorganizationcellulargatewayuplinkstatuses(aiomeraki, cellular
     try:
         returned_json = await aiomeraki.cellularGateway.getOrganizationCellularGatewayUplinkStatuses(
             organizationId=cellularGateway['organizationId'],
+            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
