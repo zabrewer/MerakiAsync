@@ -35,6 +35,70 @@ def add_keys(input_json, output_json):
         
         return output_json
 
+async def _call_getadministeredlicensingsubscriptionsubscriptions(aiomeraki, **kwargs):
+    try:
+        returned_json = await aiomeraki.licensing.getAdministeredLicensingSubscriptionSubscriptions(
+            total_pages='all',
+            **kwargs)
+
+    except meraki.exceptions.AsyncAPIError as e:
+        print('Meraki AIO API Error:\n')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    except Exception as e:
+        print('Non Meraki API Error:\n')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    if returned_json:
+
+        if isinstance(returned_json, (list)):
+            updated_json = []
+            for each_dict in returned_json:
+                keys_added = add_keys(input_json=licensing, output_json=each_dict)
+                updated_json.append(keys_added)
+
+        elif isinstance(returned_json, (dict)):
+            updated_json = []
+            keys_added = add_keys(input_json=licensing, output_json=returned_json)
+            updated_json.append(keys_added)        
+        else:
+            print('returned_json does not match type dict or list')
+
+        return updated_json
+    
+    else:
+        return None
+
+async def _async_getadministeredlicensingsubscriptionsubscriptions(apikey, debug_dict, **kwargs):
+    async with meraki.aio.AsyncDashboardAPI(
+        api_key=apikey,
+        base_url=debug_dict['base_url'],
+        log_file_prefix=debug_dict['log_file_prefix'],
+        log_path=debug_dict['log_path'],
+        maximum_concurrent_requests=debug_dict['maximum_concurrent_requests'],
+        maximum_retries=debug_dict['maximum_retries'],
+        wait_on_rate_limit=debug_dict['wait_on_rate_limit'],
+        output_log=debug_dict['output_log'],
+        print_console=debug_dict['print_console'],
+        suppress_logging=debug_dict['suppress_logging'],
+        caller=debug_dict['caller'],
+    ) as aiomeraki:
+
+        licensing_tasks = [_call_getadministeredlicensingsubscriptionsubscriptions(aiomeraki=aiomeraki, **kwargs)]
+        all_licensing_json = []
+
+        for task in tqdm.tqdm(
+                asyncio.as_completed(licensing_tasks),
+                total=len(licensing_tasks),
+                colour='green',
+        ):
+            licensing_json = await task
+            if licensing_json:
+                all_licensing_json = licensing_json
+        return all_licensing_json
+
 async def _call_getorganizationlicensingcotermlicenses(aiomeraki, licensing, **kwargs):
     try:
         returned_json = await aiomeraki.licensing.getOrganizationLicensingCotermLicenses(

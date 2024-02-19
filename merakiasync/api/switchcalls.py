@@ -733,6 +733,27 @@ class Switch:
                 **kwargs
             ))
 
+    def AsyncGetOrganizationSummarySwitchPowerHistory(self, switches, **kwargs):
+        """
+        **Returns the total PoE power draw for all switch ports in the organization over the requested timespan (by default the last 24 hours). The returned array is a newest-first list of intervals. The time between intervals depends on the requested timespan with 20 minute intervals used for timespans up to 1 day, 4 hour intervals used for timespans up to 2 weeks, and 1 day intervals for timespans larger than 2 weeks.**
+        https://developer.cisco.com/meraki/api-v1/#!get-organization-summary-switch-power-history
+
+        switch: (list) List containing one or more switch (dict).  Each nested dict must include following required keys/values:
+            - organizationId (string): Organization ID (required)
+        
+        The following optional paramaters can be passed directly to the class as arguments:
+            - t0 (string): The beginning of the timespan for the data. (optional)
+            - t1 (string): The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)
+            - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getorganizationsummaryswitchpowerhistory(
+                switches= switches,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
     def AsyncGetOrganizationSwitchPortsBySwitch(self, switches, **kwargs):
         """
         **List the switchports in an organization by switch**

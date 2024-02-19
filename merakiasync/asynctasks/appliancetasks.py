@@ -4045,6 +4045,80 @@ async def _async_getorganizationapplianceuplinkstatuses(apikey, debug_dict, appl
                 all_appliance_json.extend(iter(appliance_json))
         return all_appliance_json
 
+async def _call_getorganizationapplianceuplinksstatusesoverview(aiomeraki, appliance, **kwargs):
+    try:
+        returned_json = await aiomeraki.appliance.getOrganizationApplianceUplinksStatusesOverview(
+            organizationId=appliance['organizationId'],
+            **kwargs)
+
+    except meraki.exceptions.AsyncAPIError as e:
+        error_data = return_message(data=appliance)
+        print('Meraki AIO API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    except Exception as e:
+        error_data = return_message(data=appliance)
+        print('Non Meraki API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    if returned_json:
+
+        if isinstance(returned_json, (list)):
+            updated_json = []
+            for each_dict in returned_json:
+                keys_added = add_keys(input_json=appliance, output_json=each_dict)
+                updated_json.append(keys_added)
+
+        elif isinstance(returned_json, (dict)):
+            updated_json = []
+            keys_added = add_keys(input_json=appliance, output_json=returned_json)
+            updated_json.append(keys_added)        
+        else:
+            print('returned_json does not match type dict or list')
+
+        return updated_json
+    
+    else:
+        return None
+
+async def _async_getorganizationapplianceuplinksstatusesoverview(apikey, debug_dict, appliances, **kwargs):
+    async with meraki.aio.AsyncDashboardAPI(
+        api_key=apikey,
+        base_url=debug_dict['base_url'],
+        log_file_prefix=debug_dict['log_file_prefix'],
+        log_path=debug_dict['log_path'],
+        maximum_concurrent_requests=debug_dict['maximum_concurrent_requests'],
+        maximum_retries=debug_dict['maximum_retries'],
+        wait_on_rate_limit=debug_dict['wait_on_rate_limit'],
+        output_log=debug_dict['output_log'],
+        print_console=debug_dict['print_console'],
+        suppress_logging=debug_dict['suppress_logging'],
+        caller=debug_dict['caller'],
+    ) as aiomeraki:
+
+        appliance_tasks = [
+            _call_getorganizationapplianceuplinksstatusesoverview(aiomeraki, appliance, **kwargs) for appliance in appliances
+            ]
+        all_appliance_json = []
+
+        for task in tqdm.tqdm(
+                asyncio.as_completed(appliance_tasks),
+                total=len(appliance_tasks),
+                colour='green',
+        ):
+            appliance_json = await task
+            if appliance_json:
+                all_appliance_json.extend(iter(appliance_json))
+        return all_appliance_json
+
 async def _call_getorganizationapplianceuplinksusagebynetwork(aiomeraki, appliance, **kwargs):
     try:
         returned_json = await aiomeraki.appliance.getOrganizationApplianceUplinksUsageByNetwork(

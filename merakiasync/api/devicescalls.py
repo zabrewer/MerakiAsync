@@ -60,6 +60,40 @@ class Devices:
                 **kwargs
             ))
 
+    def AsyncGetDeviceLiveToolsArpTable(self, devices, **kwargs):
+        """
+        **Return an ARP table live tool job.**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-live-tools-arp-table
+
+        devices: (list) List containing one or more devices (dict).  Each nested dict must include following required keys/values:
+            - serial (string): Serial (required)
+            - arpTableId (string): Arp table ID (required)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getdevicelivetoolsarptable(
+                devices= devices,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
+    def AsyncGetDeviceLiveToolsCableTest(self, devices, **kwargs):
+        """
+        **Return a cable test live tool job.**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-live-tools-cable-test
+
+        devices: (list) List containing one or more devices (dict).  Each nested dict must include following required keys/values:
+            - serial (string): Serial (required)
+            - id (string): ID (required)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getdevicelivetoolscabletest(
+                devices= devices,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
     def AsyncGetDeviceLiveToolsPing(self, devices, **kwargs):
         """
         **Return a ping job. Latency unit in response is in milliseconds. Size is in bytes.**
@@ -88,6 +122,40 @@ class Devices:
         """
         return self._loop.run_until_complete(
             async_tasks._async_getdevicelivetoolspingdevice(
+                devices= devices,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
+    def AsyncGetDeviceLiveToolsThroughputTest(self, devices, **kwargs):
+        """
+        **Return a throughput test job**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-live-tools-throughput-test
+
+        devices: (list) List containing one or more devices (dict).  Each nested dict must include following required keys/values:
+            - serial (string): Serial (required)
+            - throughputTestId (string): Throughput test ID (required)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getdevicelivetoolsthroughputtest(
+                devices= devices,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
+    def AsyncGetDeviceLiveToolsWakeOnLan(self, devices, **kwargs):
+        """
+        **Return a Wake-on-LAN job**
+        https://developer.cisco.com/meraki/api-v1/#!get-device-live-tools-wake-on-lan
+
+        devices: (list) List containing one or more devices (dict).  Each nested dict must include following required keys/values:
+            - serial (string): Serial (required)
+            - wakeOnLanId (string): Wake on lan ID (required)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getdevicelivetoolswakeonlan(
                 devices= devices,
                 apikey=self._apikey,
                 debug_dict=self._debug_dict,

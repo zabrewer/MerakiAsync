@@ -1,3 +1,6 @@
+import inspect
+import os
+
 import merakiasync.api.organizationscalls as organizationscalls
 import merakiasync.api.networkscalls as networkscalls
 import merakiasync.api.devicescalls as devicescalls
@@ -11,8 +14,24 @@ import merakiasync.api.licensingcalls as licensingcalls
 
 __author__ = 'Zach Brewer'
 __email__ = 'zbrewer@cisco.com'
-__version__ = '1.0.01'
+__version__ = '1.0.02'
 __license__ = 'MIT'
+
+def _create_logdir(directory_name):
+    '''
+    Returns the path containing the .py file calling this library
+
+    Creates directory_name directory in the directory of the calling .py file if it does not exist
+    '''
+    frame = inspect.stack()[-1]
+    module = inspect.getmodule(frame[0])
+    calling_dir = os.path.dirname(os.path.realpath(module.__file__))
+    parent_log_path = os.path.join(calling_dir, directory_name)
+    path_exists = os.path.exists(parent_log_path)
+    if not path_exists:
+        os.makedirs(parent_log_path)
+
+    return parent_log_path
 
 class AsyncDashboard(object):
     '''
@@ -43,10 +62,11 @@ class AsyncDashboard(object):
                         print(f'Error: Key "{each_key}" not found in debug_dict keys')
                         exit(0)
         if async_debug:
+            log_path = _create_logdir(directory_name='merakiasync_logs')
             debug_dict={
                         'base_url': 'https://api.meraki.com/api/v1',
-                        'log_file_prefix': __file__[:-3],
-                        'log_path': '',
+                        'log_file_prefix': 'merakiasync',
+                        'log_path': log_path,
                         'maximum_concurrent_requests': 10,
                         'maximum_retries': 100,
                         'wait_on_rate_limit': True,

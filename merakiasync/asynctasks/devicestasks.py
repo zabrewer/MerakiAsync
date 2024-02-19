@@ -257,6 +257,156 @@ async def _async_getdeviceclients(apikey, debug_dict, devices, **kwargs):
                 all_device_json.extend(iter(device_json))
         return all_device_json
 
+async def _call_getdevicelivetoolsarptable(aiomeraki, device, **kwargs):
+    try:
+        returned_json = await aiomeraki.devices.getDeviceLiveToolsArpTable(
+            serial=device['serial'],
+            arpTableId=device['arpTableId'],
+            **kwargs)
+
+    except meraki.exceptions.AsyncAPIError as e:
+        error_data = return_message(data=device)
+        print('Meraki AIO API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    except Exception as e:
+        error_data = return_message(data=device)
+        print('Non Meraki API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    if returned_json:
+
+        if isinstance(returned_json, (list)):
+            updated_json = []
+            for each_dict in returned_json:
+                keys_added = add_keys(input_json=device, output_json=each_dict)
+                updated_json.append(keys_added)
+
+        elif isinstance(returned_json, (dict)):
+            updated_json = []
+            keys_added = add_keys(input_json=device, output_json=returned_json)
+            updated_json.append(keys_added)        
+        else:
+            print('returned_json does not match type dict or list')
+
+        return updated_json
+    
+    else:
+        return None
+
+async def _async_getdevicelivetoolsarptable(apikey, debug_dict, devices, **kwargs):
+    async with meraki.aio.AsyncDashboardAPI(
+        api_key=apikey,
+        base_url=debug_dict['base_url'],
+        log_file_prefix=debug_dict['log_file_prefix'],
+        log_path=debug_dict['log_path'],
+        maximum_concurrent_requests=debug_dict['maximum_concurrent_requests'],
+        maximum_retries=debug_dict['maximum_retries'],
+        wait_on_rate_limit=debug_dict['wait_on_rate_limit'],
+        output_log=debug_dict['output_log'],
+        print_console=debug_dict['print_console'],
+        suppress_logging=debug_dict['suppress_logging'],
+        caller=debug_dict['caller'],
+    ) as aiomeraki:
+
+        device_tasks = [
+            _call_getdevicelivetoolsarptable(aiomeraki, device, **kwargs) for device in devices
+            ]
+        all_device_json = []
+
+        for task in tqdm.tqdm(
+                asyncio.as_completed(device_tasks),
+                total=len(device_tasks),
+                colour='green',
+        ):
+            device_json = await task
+            if device_json:
+                all_device_json.extend(iter(device_json))
+        return all_device_json
+
+async def _call_getdevicelivetoolscabletest(aiomeraki, device, **kwargs):
+    try:
+        returned_json = await aiomeraki.devices.getDeviceLiveToolsCableTest(
+            serial=device['serial'],
+            id=device['id'],
+            **kwargs)
+
+    except meraki.exceptions.AsyncAPIError as e:
+        error_data = return_message(data=device)
+        print('Meraki AIO API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    except Exception as e:
+        error_data = return_message(data=device)
+        print('Non Meraki API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    if returned_json:
+
+        if isinstance(returned_json, (list)):
+            updated_json = []
+            for each_dict in returned_json:
+                keys_added = add_keys(input_json=device, output_json=each_dict)
+                updated_json.append(keys_added)
+
+        elif isinstance(returned_json, (dict)):
+            updated_json = []
+            keys_added = add_keys(input_json=device, output_json=returned_json)
+            updated_json.append(keys_added)        
+        else:
+            print('returned_json does not match type dict or list')
+
+        return updated_json
+    
+    else:
+        return None
+
+async def _async_getdevicelivetoolscabletest(apikey, debug_dict, devices, **kwargs):
+    async with meraki.aio.AsyncDashboardAPI(
+        api_key=apikey,
+        base_url=debug_dict['base_url'],
+        log_file_prefix=debug_dict['log_file_prefix'],
+        log_path=debug_dict['log_path'],
+        maximum_concurrent_requests=debug_dict['maximum_concurrent_requests'],
+        maximum_retries=debug_dict['maximum_retries'],
+        wait_on_rate_limit=debug_dict['wait_on_rate_limit'],
+        output_log=debug_dict['output_log'],
+        print_console=debug_dict['print_console'],
+        suppress_logging=debug_dict['suppress_logging'],
+        caller=debug_dict['caller'],
+    ) as aiomeraki:
+
+        device_tasks = [
+            _call_getdevicelivetoolscabletest(aiomeraki, device, **kwargs) for device in devices
+            ]
+        all_device_json = []
+
+        for task in tqdm.tqdm(
+                asyncio.as_completed(device_tasks),
+                total=len(device_tasks),
+                colour='green',
+        ):
+            device_json = await task
+            if device_json:
+                all_device_json.extend(iter(device_json))
+        return all_device_json
+
 async def _call_getdevicelivetoolsping(aiomeraki, device, **kwargs):
     try:
         returned_json = await aiomeraki.devices.getDeviceLiveToolsPing(
@@ -394,6 +544,156 @@ async def _async_getdevicelivetoolspingdevice(apikey, debug_dict, devices, **kwa
 
         device_tasks = [
             _call_getdevicelivetoolspingdevice(aiomeraki, device, **kwargs) for device in devices
+            ]
+        all_device_json = []
+
+        for task in tqdm.tqdm(
+                asyncio.as_completed(device_tasks),
+                total=len(device_tasks),
+                colour='green',
+        ):
+            device_json = await task
+            if device_json:
+                all_device_json.extend(iter(device_json))
+        return all_device_json
+
+async def _call_getdevicelivetoolsthroughputtest(aiomeraki, device, **kwargs):
+    try:
+        returned_json = await aiomeraki.devices.getDeviceLiveToolsThroughputTest(
+            serial=device['serial'],
+            throughputTestId=device['throughputTestId'],
+            **kwargs)
+
+    except meraki.exceptions.AsyncAPIError as e:
+        error_data = return_message(data=device)
+        print('Meraki AIO API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    except Exception as e:
+        error_data = return_message(data=device)
+        print('Non Meraki API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    if returned_json:
+
+        if isinstance(returned_json, (list)):
+            updated_json = []
+            for each_dict in returned_json:
+                keys_added = add_keys(input_json=device, output_json=each_dict)
+                updated_json.append(keys_added)
+
+        elif isinstance(returned_json, (dict)):
+            updated_json = []
+            keys_added = add_keys(input_json=device, output_json=returned_json)
+            updated_json.append(keys_added)        
+        else:
+            print('returned_json does not match type dict or list')
+
+        return updated_json
+    
+    else:
+        return None
+
+async def _async_getdevicelivetoolsthroughputtest(apikey, debug_dict, devices, **kwargs):
+    async with meraki.aio.AsyncDashboardAPI(
+        api_key=apikey,
+        base_url=debug_dict['base_url'],
+        log_file_prefix=debug_dict['log_file_prefix'],
+        log_path=debug_dict['log_path'],
+        maximum_concurrent_requests=debug_dict['maximum_concurrent_requests'],
+        maximum_retries=debug_dict['maximum_retries'],
+        wait_on_rate_limit=debug_dict['wait_on_rate_limit'],
+        output_log=debug_dict['output_log'],
+        print_console=debug_dict['print_console'],
+        suppress_logging=debug_dict['suppress_logging'],
+        caller=debug_dict['caller'],
+    ) as aiomeraki:
+
+        device_tasks = [
+            _call_getdevicelivetoolsthroughputtest(aiomeraki, device, **kwargs) for device in devices
+            ]
+        all_device_json = []
+
+        for task in tqdm.tqdm(
+                asyncio.as_completed(device_tasks),
+                total=len(device_tasks),
+                colour='green',
+        ):
+            device_json = await task
+            if device_json:
+                all_device_json.extend(iter(device_json))
+        return all_device_json
+
+async def _call_getdevicelivetoolswakeonlan(aiomeraki, device, **kwargs):
+    try:
+        returned_json = await aiomeraki.devices.getDeviceLiveToolsWakeOnLan(
+            serial=device['serial'],
+            wakeOnLanId=device['wakeOnLanId'],
+            **kwargs)
+
+    except meraki.exceptions.AsyncAPIError as e:
+        error_data = return_message(data=device)
+        print('Meraki AIO API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    except Exception as e:
+        error_data = return_message(data=device)
+        print('Non Meraki API Error:\n')
+        if error_data:
+            for key, value in error_data.items():
+                print(f'\t{ key }: { value }')
+        print(f'\tError: \n \t{ e }')
+        returned_json = None
+
+    if returned_json:
+
+        if isinstance(returned_json, (list)):
+            updated_json = []
+            for each_dict in returned_json:
+                keys_added = add_keys(input_json=device, output_json=each_dict)
+                updated_json.append(keys_added)
+
+        elif isinstance(returned_json, (dict)):
+            updated_json = []
+            keys_added = add_keys(input_json=device, output_json=returned_json)
+            updated_json.append(keys_added)        
+        else:
+            print('returned_json does not match type dict or list')
+
+        return updated_json
+    
+    else:
+        return None
+
+async def _async_getdevicelivetoolswakeonlan(apikey, debug_dict, devices, **kwargs):
+    async with meraki.aio.AsyncDashboardAPI(
+        api_key=apikey,
+        base_url=debug_dict['base_url'],
+        log_file_prefix=debug_dict['log_file_prefix'],
+        log_path=debug_dict['log_path'],
+        maximum_concurrent_requests=debug_dict['maximum_concurrent_requests'],
+        maximum_retries=debug_dict['maximum_retries'],
+        wait_on_rate_limit=debug_dict['wait_on_rate_limit'],
+        output_log=debug_dict['output_log'],
+        print_console=debug_dict['print_console'],
+        suppress_logging=debug_dict['suppress_logging'],
+        caller=debug_dict['caller'],
+    ) as aiomeraki:
+
+        device_tasks = [
+            _call_getdevicelivetoolswakeonlan(aiomeraki, device, **kwargs) for device in devices
             ]
         all_device_json = []
 

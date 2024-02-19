@@ -13,6 +13,13 @@ class Organizations:
         **List the organizations that the user has privileges on**
         https://developer.cisco.com/meraki/api-v1/#!get-organizations
 
+        
+        The following optional paramaters can be passed directly to the class as arguments:
+            - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 9000. Default is 9000. (optional)
+            - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
+            - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
         """
 
         return self._loop.run_until_complete(
@@ -571,9 +578,9 @@ class Organizations:
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 1000. Default is 1000. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
-            - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 14 days from today. (optional)
-            - t1 (string): The end of the timespan for the data. t1 can be a maximum of 14 days after t0. (optional)
-            - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 14 days. The default is 1 day. (optional)
+            - t0 (string): The beginning of the timespan for the data. The maximum lookback period is 31 days from today. (optional)
+            - t1 (string): The end of the timespan for the data. t1 can be a maximum of 31 days after t0. (optional)
+            - timespan (number): The timespan for which the information will be fetched. If specifying timespan, do not specify parameters t0 and t1. The value must be in seconds and be less than or equal to 31 days. The default is 1 day. (optional)
             - serials (array): Optional parameter to filter device availabilities history by device serial numbers (optional)
             - productTypes (array): Optional parameter to filter device availabilities history by device product types (optional)
             - networkIds (array): Optional parameter to filter device availabilities history by network IDs (optional)
@@ -823,7 +830,7 @@ class Organizations:
 
     def AsyncGetOrganizationFirmwareUpgradesByDevice(self, organizations, **kwargs):
         """
-        **Get firmware upgrade status for the filtered devices**
+        **Get firmware upgrade status for the filtered devices. This endpoint currently only supports Meraki switches.**
         https://developer.cisco.com/meraki/api-v1/#!get-organization-firmware-upgrades-by-device
 
         organizations: (list) List containing one or more organizations (dict).  Each nested dict must include following required keys/values:
@@ -864,7 +871,7 @@ class Organizations:
             - usedState (string): Filter results by used or unused inventory. Accepted values are 'used' or 'unused'. (optional)
             - search (string): Search for devices in inventory based on serial number, mac address, or model. (optional)
             - macs (array): Search for devices in inventory based on mac addresses. (optional)
-            - networkIds (array): Search for devices in inventory based on network ids. (optional)
+            - networkIds (array): Search for devices in inventory based on network ids. Use explicit 'null' value to get available devices only. (optional)
             - serials (array): Search for devices in inventory based on serials. (optional)
             - models (array): Search for devices in inventory based on model. (optional)
             - orderNumbers (array): Search for devices in inventory based on order numbers. (optional)
@@ -926,6 +933,7 @@ class Organizations:
             - deviceType (string): Device Type switch or wireless controller (required)
         
         The following optional paramaters can be passed directly to the class as arguments:
+            - search (string): Optional parameter to search on network name (optional)
             - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 100000. Default is 1000. (optional)
             - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
             - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
@@ -1344,6 +1352,29 @@ class Organizations:
                 **kwargs
             ))
 
+    def AsyncGetOrganizationSummaryTopNetworksByStatus(self, organizations, **kwargs):
+        """
+        **List the client and status overview information for the networks in an organization. Usage is measured in kilobytes and from the last seven days.**
+        https://developer.cisco.com/meraki/api-v1/#!get-organization-summary-top-networks-by-status
+
+        organizations: (list) List containing one or more organizations (dict).  Each nested dict must include following required keys/values:
+            - organizationId (string): Organization ID (required)
+        
+        The following optional paramaters can be passed directly to the class as arguments:
+            - perPage (integer): The number of entries per page returned. Acceptable range is 3 - 5000. (optional)
+            - startingAfter (string): A token used by the server to indicate the start of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
+            - endingBefore (string): A token used by the server to indicate the end of the page. Often this is a timestamp or an ID but it is not limited to those. This parameter should not be defined by client applications. The link for the first, last, prev, or next page in the HTTP Link header should define it. (optional)
+            - total_pages (integer or string): (defaults to "all") use with perPage to get total results up to total_pages*perPage; -1 or "all" for all pages (optional)
+            - direction (string): direction to paginate, either "next" (default) or "prev" page (optional)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getorganizationsummarytopnetworksbystatus(
+                organizations= organizations,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
     def AsyncGetOrganizationSummaryTopSsidsByUsage(self, organizations, **kwargs):
         """
         **Return metrics for organization's top 10 ssids by data usage over given time range. Default unit is megabytes.**
@@ -1425,6 +1456,23 @@ class Organizations:
         """
         return self._loop.run_until_complete(
             async_tasks._async_getorganizationwebhooksalerttypes(
+                organizations= organizations,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
+    def AsyncGetOrganizationWebhooksCallbacksStatus(self, organizations, **kwargs):
+        """
+        **Return the status of an API callback**
+        https://developer.cisco.com/meraki/api-v1/#!get-organization-webhooks-callbacks-status
+
+        organizations: (list) List containing one or more organizations (dict).  Each nested dict must include following required keys/values:
+            - organizationId (string): Organization ID (required)
+            - callbackId (string): Callback ID (required)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getorganizationwebhookscallbacksstatus(
                 organizations= organizations,
                 apikey=self._apikey,
                 debug_dict=self._debug_dict,

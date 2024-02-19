@@ -938,6 +938,22 @@ class Appliance:
                 **kwargs
             ))
 
+    def AsyncGetOrganizationApplianceUplinksStatusesOverview(self, appliances, **kwargs):
+        """
+        **Returns an overview of uplink statuses**
+        https://developer.cisco.com/meraki/api-v1/#!get-organization-appliance-uplinks-statuses-overview
+
+        appliance: (list) List containing one or more appliance (dict).  Each nested dict must include following required keys/values:
+            - organizationId (string): Organization ID (required)
+        """
+        return self._loop.run_until_complete(
+            async_tasks._async_getorganizationapplianceuplinksstatusesoverview(
+                appliances= appliances,
+                apikey=self._apikey,
+                debug_dict=self._debug_dict,
+                **kwargs
+            ))
+
     def AsyncGetOrganizationApplianceUplinksUsageByNetwork(self, appliances, **kwargs):
         """
         **Get the sent and received bytes for each uplink of all MX and Z networks within an organization. If more than one device was active during the specified timespan, then the sent and received bytes will be aggregated by interface.**
