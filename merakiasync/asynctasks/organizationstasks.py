@@ -34,11 +34,9 @@ def add_keys(input_json, output_json):
                 output_json[each_key] = input_json[each_key]
         
         return output_json
-
 async def _call_getorganizations(aiomeraki, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizations(
-            total_pages='all',
             **kwargs)
 
     except meraki.exceptions.AsyncAPIError as e:
@@ -95,7 +93,6 @@ async def _async_getorganizations(apikey, debug_dict, **kwargs):
             if organization_json:
                 all_organization_json = organization_json
         return all_organization_json
-
 async def _call_getorganization(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganization(
@@ -166,7 +163,6 @@ async def _async_getorganization(apikey, debug_dict, organizations, **kwargs):
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationactionbatches(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationActionBatches(
@@ -240,7 +236,6 @@ async def _async_getorganizationactionbatches(apikey, debug_dict, organizations,
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationactionbatch(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationActionBatch(
@@ -315,7 +310,6 @@ async def _async_getorganizationactionbatch(apikey, debug_dict, organizations, *
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicyacls(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicyAcls(
@@ -389,7 +383,6 @@ async def _async_getorganizationadaptivepolicyacls(apikey, debug_dict, organizat
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicyacl(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicyAcl(
@@ -464,7 +457,6 @@ async def _async_getorganizationadaptivepolicyacl(apikey, debug_dict, organizati
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicygroups(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicyGroups(
@@ -538,7 +530,6 @@ async def _async_getorganizationadaptivepolicygroups(apikey, debug_dict, organiz
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicygroup(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicyGroup(
@@ -613,7 +604,6 @@ async def _async_getorganizationadaptivepolicygroup(apikey, debug_dict, organiza
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicyoverview(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicyOverview(
@@ -687,7 +677,6 @@ async def _async_getorganizationadaptivepolicyoverview(apikey, debug_dict, organ
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicypolicies(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicyPolicies(
@@ -761,7 +750,6 @@ async def _async_getorganizationadaptivepolicypolicies(apikey, debug_dict, organ
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicypolicy(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicyPolicy(
@@ -836,7 +824,6 @@ async def _async_getorganizationadaptivepolicypolicy(apikey, debug_dict, organiz
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadaptivepolicysettings(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdaptivePolicySettings(
@@ -910,7 +897,6 @@ async def _async_getorganizationadaptivepolicysettings(apikey, debug_dict, organ
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationadmins(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAdmins(
@@ -984,7 +970,6 @@ async def _async_getorganizationadmins(apikey, debug_dict, organizations, **kwar
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationalertsprofiles(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationAlertsProfiles(
@@ -1058,7 +1043,6 @@ async def _async_getorganizationalertsprofiles(apikey, debug_dict, organizations
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationapirequests(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationApiRequests(
@@ -1133,7 +1117,6 @@ async def _async_getorganizationapirequests(apikey, debug_dict, organizations, *
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationapirequestsoverview(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationApiRequestsOverview(
@@ -1207,7 +1190,6 @@ async def _async_getorganizationapirequestsoverview(apikey, debug_dict, organiza
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationapirequestsoverviewresponsecodesbyinterval(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationApiRequestsOverviewResponseCodesByInterval(
@@ -1281,7 +1263,6 @@ async def _async_getorganizationapirequestsoverviewresponsecodesbyinterval(apike
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationbrandingpolicies(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationBrandingPolicies(
@@ -1355,7 +1336,6 @@ async def _async_getorganizationbrandingpolicies(apikey, debug_dict, organizatio
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationbrandingpoliciespriorities(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationBrandingPoliciesPriorities(
@@ -1429,7 +1409,6 @@ async def _async_getorganizationbrandingpoliciespriorities(apikey, debug_dict, o
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationbrandingpolicy(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationBrandingPolicy(
@@ -1504,7 +1483,6 @@ async def _async_getorganizationbrandingpolicy(apikey, debug_dict, organizations
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationclientsbandwidthusagehistory(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationClientsBandwidthUsageHistory(
@@ -1578,7 +1556,6 @@ async def _async_getorganizationclientsbandwidthusagehistory(apikey, debug_dict,
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationclientsoverview(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationClientsOverview(
@@ -1652,7 +1629,6 @@ async def _async_getorganizationclientsoverview(apikey, debug_dict, organization
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationclientssearch(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationClientsSearch(
@@ -1728,7 +1704,6 @@ async def _async_getorganizationclientssearch(apikey, debug_dict, organizations,
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationconfigtemplates(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationConfigTemplates(
@@ -1802,7 +1777,6 @@ async def _async_getorganizationconfigtemplates(apikey, debug_dict, organization
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationconfigtemplate(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationConfigTemplate(
@@ -1877,7 +1851,6 @@ async def _async_getorganizationconfigtemplate(apikey, debug_dict, organizations
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationconfigurationchanges(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationConfigurationChanges(
@@ -1952,7 +1925,6 @@ async def _async_getorganizationconfigurationchanges(apikey, debug_dict, organiz
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevices(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevices(
@@ -2027,7 +1999,6 @@ async def _async_getorganizationdevices(apikey, debug_dict, organizations, **kwa
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicesavailabilities(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesAvailabilities(
@@ -2102,7 +2073,6 @@ async def _async_getorganizationdevicesavailabilities(apikey, debug_dict, organi
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicesavailabilitieschangehistory(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesAvailabilitiesChangeHistory(
@@ -2177,7 +2147,6 @@ async def _async_getorganizationdevicesavailabilitieschangehistory(apikey, debug
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicespowermodulesstatusesbydevice(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesPowerModulesStatusesByDevice(
@@ -2252,7 +2221,6 @@ async def _async_getorganizationdevicespowermodulesstatusesbydevice(apikey, debu
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicesprovisioningstatuses(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesProvisioningStatuses(
@@ -2327,7 +2295,6 @@ async def _async_getorganizationdevicesprovisioningstatuses(apikey, debug_dict, 
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicesstatuses(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesStatuses(
@@ -2402,7 +2369,6 @@ async def _async_getorganizationdevicesstatuses(apikey, debug_dict, organization
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicesstatusesoverview(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesStatusesOverview(
@@ -2476,7 +2442,6 @@ async def _async_getorganizationdevicesstatusesoverview(apikey, debug_dict, orga
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicesuplinksaddressesbydevice(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesUplinksAddressesByDevice(
@@ -2551,7 +2516,6 @@ async def _async_getorganizationdevicesuplinksaddressesbydevice(apikey, debug_di
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationdevicesuplinkslossandlatency(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationDevicesUplinksLossAndLatency(
@@ -2625,7 +2589,6 @@ async def _async_getorganizationdevicesuplinkslossandlatency(apikey, debug_dict,
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationearlyaccessfeatures(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationEarlyAccessFeatures(
@@ -2699,7 +2662,6 @@ async def _async_getorganizationearlyaccessfeatures(apikey, debug_dict, organiza
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationearlyaccessfeaturesoptins(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationEarlyAccessFeaturesOptIns(
@@ -2773,7 +2735,6 @@ async def _async_getorganizationearlyaccessfeaturesoptins(apikey, debug_dict, or
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationearlyaccessfeaturesoptin(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationEarlyAccessFeaturesOptIn(
@@ -2848,7 +2809,6 @@ async def _async_getorganizationearlyaccessfeaturesoptin(apikey, debug_dict, org
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationfirmwareupgrades(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationFirmwareUpgrades(
@@ -2923,7 +2883,6 @@ async def _async_getorganizationfirmwareupgrades(apikey, debug_dict, organizatio
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationfirmwareupgradesbydevice(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationFirmwareUpgradesByDevice(
@@ -2998,7 +2957,6 @@ async def _async_getorganizationfirmwareupgradesbydevice(apikey, debug_dict, org
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationinventorydevices(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationInventoryDevices(
@@ -3073,7 +3031,6 @@ async def _async_getorganizationinventorydevices(apikey, debug_dict, organizatio
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationinventorydevice(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationInventoryDevice(
@@ -3148,7 +3105,6 @@ async def _async_getorganizationinventorydevice(apikey, debug_dict, organization
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationinventoryonboardingcloudmonitoringimports(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationInventoryOnboardingCloudMonitoringImports(
@@ -3223,7 +3179,6 @@ async def _async_getorganizationinventoryonboardingcloudmonitoringimports(apikey
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationinventoryonboardingcloudmonitoringnetworks(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationInventoryOnboardingCloudMonitoringNetworks(
@@ -3299,7 +3254,6 @@ async def _async_getorganizationinventoryonboardingcloudmonitoringnetworks(apike
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationlicenses(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationLicenses(
@@ -3374,7 +3328,6 @@ async def _async_getorganizationlicenses(apikey, debug_dict, organizations, **kw
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationlicensesoverview(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationLicensesOverview(
@@ -3448,7 +3401,6 @@ async def _async_getorganizationlicensesoverview(apikey, debug_dict, organizatio
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationlicense(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationLicense(
@@ -3523,7 +3475,6 @@ async def _async_getorganizationlicense(apikey, debug_dict, organizations, **kwa
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationloginsecurity(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationLoginSecurity(
@@ -3597,7 +3548,6 @@ async def _async_getorganizationloginsecurity(apikey, debug_dict, organizations,
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationnetworks(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationNetworks(
@@ -3670,7 +3620,6 @@ async def _async_getorganizationnetworks(apikey, debug_dict, organizations, **kw
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationopenapispec(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationOpenapiSpec(
@@ -3744,7 +3693,6 @@ async def _async_getorganizationopenapispec(apikey, debug_dict, organizations, *
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationpolicyobjects(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationPolicyObjects(
@@ -3819,7 +3767,6 @@ async def _async_getorganizationpolicyobjects(apikey, debug_dict, organizations,
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationpolicyobjectsgroups(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationPolicyObjectsGroups(
@@ -3894,7 +3841,6 @@ async def _async_getorganizationpolicyobjectsgroups(apikey, debug_dict, organiza
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationpolicyobjectsgroup(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationPolicyObjectsGroup(
@@ -3969,7 +3915,6 @@ async def _async_getorganizationpolicyobjectsgroup(apikey, debug_dict, organizat
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationpolicyobject(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationPolicyObject(
@@ -4044,7 +3989,6 @@ async def _async_getorganizationpolicyobject(apikey, debug_dict, organizations, 
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsaml(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSaml(
@@ -4118,7 +4062,6 @@ async def _async_getorganizationsaml(apikey, debug_dict, organizations, **kwargs
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsamlidps(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSamlIdps(
@@ -4192,7 +4135,6 @@ async def _async_getorganizationsamlidps(apikey, debug_dict, organizations, **kw
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsamlidp(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSamlIdp(
@@ -4267,7 +4209,6 @@ async def _async_getorganizationsamlidp(apikey, debug_dict, organizations, **kwa
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsamlroles(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSamlRoles(
@@ -4341,7 +4282,6 @@ async def _async_getorganizationsamlroles(apikey, debug_dict, organizations, **k
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsamlrole(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSamlRole(
@@ -4416,7 +4356,6 @@ async def _async_getorganizationsamlrole(apikey, debug_dict, organizations, **kw
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsnmp(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSnmp(
@@ -4490,7 +4429,6 @@ async def _async_getorganizationsnmp(apikey, debug_dict, organizations, **kwargs
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopappliancesbyutilization(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopAppliancesByUtilization(
@@ -4564,7 +4502,6 @@ async def _async_getorganizationsummarytopappliancesbyutilization(apikey, debug_
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopclientsbyusage(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopClientsByUsage(
@@ -4638,7 +4575,6 @@ async def _async_getorganizationsummarytopclientsbyusage(apikey, debug_dict, org
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopclientsmanufacturersbyusage(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopClientsManufacturersByUsage(
@@ -4712,7 +4648,6 @@ async def _async_getorganizationsummarytopclientsmanufacturersbyusage(apikey, de
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopdevicesbyusage(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopDevicesByUsage(
@@ -4786,7 +4721,6 @@ async def _async_getorganizationsummarytopdevicesbyusage(apikey, debug_dict, org
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopdevicesmodelsbyusage(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopDevicesModelsByUsage(
@@ -4860,7 +4794,6 @@ async def _async_getorganizationsummarytopdevicesmodelsbyusage(apikey, debug_dic
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopnetworksbystatus(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopNetworksByStatus(
@@ -4935,7 +4868,6 @@ async def _async_getorganizationsummarytopnetworksbystatus(apikey, debug_dict, o
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopssidsbyusage(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopSsidsByUsage(
@@ -5009,7 +4941,6 @@ async def _async_getorganizationsummarytopssidsbyusage(apikey, debug_dict, organ
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationsummarytopswitchesbyenergyusage(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationSummaryTopSwitchesByEnergyUsage(
@@ -5083,7 +5014,6 @@ async def _async_getorganizationsummarytopswitchesbyenergyusage(apikey, debug_di
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationuplinksstatuses(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationUplinksStatuses(
@@ -5158,7 +5088,6 @@ async def _async_getorganizationuplinksstatuses(apikey, debug_dict, organization
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationwebhooksalerttypes(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationWebhooksAlertTypes(
@@ -5232,7 +5161,6 @@ async def _async_getorganizationwebhooksalerttypes(apikey, debug_dict, organizat
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationwebhookscallbacksstatus(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationWebhooksCallbacksStatus(
@@ -5307,7 +5235,6 @@ async def _async_getorganizationwebhookscallbacksstatus(apikey, debug_dict, orga
             if organization_json:
                 all_organization_json.extend(iter(organization_json))
         return all_organization_json
-
 async def _call_getorganizationwebhookslogs(aiomeraki, organization, **kwargs):
     try:
         returned_json = await aiomeraki.organizations.getOrganizationWebhooksLogs(
